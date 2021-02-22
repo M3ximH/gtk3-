@@ -4,7 +4,7 @@
 #include <gtk/gtk.h>
 
 typedef struct FrmMainPointer{
-    GtkWidget *window;
+    GtkWindow *window;
     
     GtkLabel *lblHeadline;
     
@@ -20,7 +20,18 @@ typedef struct FrmMainPointer{
 } mainP;
 
 typedef struct FrmAddPointer{
+    GtkWindow *window;
     
-}
+    GtkEntry *txtGerWord;
+    GtkEntry *txtEngWord;
+    
+    GtkButton *cmdAdd;
+    GtkButton *cmdCancel;
+} frmAddP;
+
+typedef struct GermanEnglishWordConnection{
+    char German[80];
+    char English[50];
+} Translation;
 
 #endif
