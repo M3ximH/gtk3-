@@ -11,8 +11,13 @@ typedef struct FrmMainPointer{
     GtkToggleButton *rbDeuEng;
     GtkToggleButton *rbEngDeu;
     
-    GtkTextView *textViewOutput;
-    GtkTextBuffer *textViewBuffer;
+    GtkTreeStore *treeStore;
+    GtkTreeView *treeView;
+    GtkTreeViewColumn *cx1;
+    GtkTreeViewColumn *cx2;
+    GtkTreeSelection *treeSelection;
+    GtkCellRenderer *cr1;
+    GtkCellRenderer *cr2;
     
     GtkButton *cmdSearch;
     GtkButton *cmdAdd;
@@ -30,8 +35,8 @@ typedef struct FrmAddPointer{
 } frmAddP;
 
 typedef struct GermanEnglishWordConnection{
-    char *German;
-    char *English;
+    const char *German;
+    const char *English;
 } Translation;
 
 #endif

@@ -92,6 +92,17 @@
       </object>
     </child>
   </object>
+  <object class="GtkTreeStore" id="treeStore">
+    <columns>
+      <!-- column-name c1 -->
+      <column type="gchararray"/>
+      <!-- column-name c2 -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkTreeModelSort" id="treeStoreSort">
+    <property name="model">treeStore</property>
+  </object>
   <object class="GtkWindow" id="frmMain">
     <property name="can_focus">False</property>
     <signal name="destroy" handler="on_frmMain_destroy" swapped="no"/>
@@ -110,6 +121,7 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <signal name="clicked" handler="on_cmdRemove_clicked" swapped="no"/>
           </object>
           <packing>
             <property name="x">310</property>
@@ -142,18 +154,6 @@
               <attribute name="weight" value="ultrabold"/>
             </attributes>
           </object>
-        </child>
-        <child>
-          <object class="GtkTextView" id="textViewOutput">
-            <property name="width_request">432</property>
-            <property name="height_request">189</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-          </object>
-          <packing>
-            <property name="x">4</property>
-            <property name="y">73</property>
-          </packing>
         </child>
         <child>
           <object class="GtkLabel">
@@ -213,6 +213,52 @@
           <packing>
             <property name="x">30</property>
             <property name="y">281</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledWin">
+            <property name="width_request">440</property>
+            <property name="height_request">200</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="shadow_type">in</property>
+            <child>
+              <object class="GtkTreeView" id="treeView">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="model">treeStoreSort</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeSelection"/>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="cx1">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Deutsch</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cr1"/>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="cx2">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Englisch</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="cr2"/>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="y">66</property>
           </packing>
         </child>
       </object>
