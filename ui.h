@@ -7,21 +7,24 @@ typedef struct FrmMainPointer{
     GtkWidget *window;
     
     GtkLabel *lblHeadline;
-    
-    GtkToggleButton *rbDeuEng;
-    GtkToggleButton *rbEngDeu;
+
+    GtkComboBox *cbSort;
+    GtkComboBoxText *cbtRemove;
     
     GtkTreeStore *treeStore;
     GtkTreeView *treeView;
+    GtkTreeViewColumn *cx0;
     GtkTreeViewColumn *cx1;
     GtkTreeViewColumn *cx2;
     GtkTreeSelection *treeSelection;
+    GtkCellRenderer *cr0;
     GtkCellRenderer *cr1;
     GtkCellRenderer *cr2;
     
     GtkButton *cmdSearch;
     GtkButton *cmdAdd;
     GtkButton *cmdRemove;
+    GtkButton *cmdRefresh;
 } mainP;
 
 typedef struct FrmAddPointer{
